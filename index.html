@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Calculator - Calculate Your Ideal Bedtime | SleepWise</title>
+    <meta name="description" content="Calculate your ideal bedtime and wake-up time using our free sleep calculator. Plan better sleep cycles and wake up refreshed with SleepWise.">
+    <link rel="canonical" href="https://YOUR-DOMAIN.com/">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sleep Calculator - Calculate Your Ideal Bedtime | SleepWise">
+    <meta property="og:description" content="Calculate your ideal bedtime and wake-up time using our free sleep calculator. Plan better sleep cycles and wake up refreshed.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://YOUR-DOMAIN.com/">
+    <meta property="og:image" content="https://YOUR-DOMAIN.com/assets/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Calculator - Calculate Your Ideal Bedtime | SleepWise">
+    <meta name="twitter:description" content="Calculate your ideal bedtime and wake-up time using our free sleep calculator.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#4A6CF7">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SleepWise",
+        "url": "https://YOUR-DOMAIN.com/",
+        "description": "Calculate your ideal bedtime and wake-up time using our free sleep calculator.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://YOUR-DOMAIN.com/blog/index.html?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SleepWise",
+        "url": "https://YOUR-DOMAIN.com/",
+        "logo": "https://YOUR-DOMAIN.com/assets/logo.svg",
+        "description": "Free sleep calculators and educational resources to help you plan better sleep.",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "YOUR_EMAIL@example.com",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="cookie-consent" role="alert" aria-label="Cookie consent">
+        <div class="cookie-consent-content">
+            <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
+            <div class="cookie-buttons">
+                <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
+                <button id="cookie-reject" class="btn btn-secondary btn-sm">Reject Non-Essential</button>
+                <a href="/cookie-policy.html" class="btn btn-text btn-sm">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo-container">
+                    <a href="/" class="logo" aria-label="SleepWise Home">
+                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6z" fill="#4A6CF7"/>
+                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4z" fill="#4A6CF7"/>
+                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M11 22l2-2M21 22l-2-2M14 9l1 3M18 9l-1 3" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
+                    </a>
+                    <span class="tagline">Plan Better Sleep</span>
+                </div>
+
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
+
+                <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="/sleep-calculator.html" class="nav-link active">Sleep Calculator</a></li>
+                        <li class="nav-dropdown">
+                            <button class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Sleep Tools <span class="dropdown-arrow">▾</span></button>
+                            <ul class="nav-dropdown-menu" role="menu">
+                                <li><a href="/bedtime-calculator.html" role="menuitem">Bedtime Calculator</a></li>
+                                <li><a href="/wake-up-calculator.html" role="menuitem">Wake-Up Calculator</a></li>
+                                <li><a href="/sleep-cycle-calculator.html" role="menuitem">Sleep Cycle Calculator</a></li>
+                                <li><a href="/sleep-debt-calculator.html" role="menuitem">Sleep Debt Calculator</a></li>
+                                <li><a href="/sleep-duration-calculator.html" role="menuitem">Sleep Duration Calculator</a></li>
+                                <li><a href="/nap-calculator.html" role="menuitem">Nap Calculator</a></li>
+                                <li><a href="/age-sleep-calculator.html" role="menuitem">Age-Based Sleep Guide</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/blog/index.html" class="nav-link">Blog</a></li>
+                        <li><a href="/faq.html" class="nav-link">FAQ</a></li>
+                        <li><a href="/about.html" class="nav-link">About</a></li>
+                    </ul>
+                    
+                    <div class="nav-actions">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                            </svg>
+                            <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1 id="hero-heading">Calculate Your Ideal Bedtime and Wake-Up Time</h1>
+                        <p class="hero-text">Use our free sleep calculators to plan your bedtime, wake-up time, sleep cycles, naps, and sleep schedule.</p>
+                        <div class="hero-buttons">
+                            <a href="#calculator-section" class="btn btn-primary btn-lg">Calculate My Sleep</a>
+                            <a href="/sleep-tools.html" class="btn btn-secondary btn-lg">Explore Sleep Tools</a>
+                        </div>
+                        <div class="hero-features">
+                            <span class="hero-feature">🕐 Sleep Cycle Based</span>
+                            <span class="hero-feature">📊 Multiple Calculators</span>
+                            <span class="hero-feature">📱 Free & Easy</span>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="hero-sleep-icon">
+                            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="100" cy="100" r="90" fill="#F0F4FF" stroke="#4A6CF7" stroke-width="2"/>
+                                <path d="M100 30C61.34 30 30 61.34 30 100s31.34 70 70 70 70-31.34 70-70-31.34-70-70-70zm0 20c27.61 0 50 22.39 50 50s-22.39 50-50 50-50-22.39-50-50 22.39-50 50-50z" fill="#4A6CF7" opacity="0.1"/>
+                                <circle cx="100" cy="100" r="40" fill="#4A6CF7" opacity="0.15"/>
+                                <path d="M85 85c-5.523 0-10 4.477-10 10s4.477 10 10 10h30c5.523 0 10-4.477 10-10s-4.477-10-10-10H85z" fill="#4A6CF7" opacity="0.3"/>
+                                <path d="M80 75a5 5 0 110-10 5 5 0 010 10zm40 0a5 5 0 110-10 5 5 0 010 10z" fill="#4A6CF7"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section id="calculator-section" class="calculator-section" aria-labelledby="calc-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="calc-heading">Sleep Calculator</h2>
+                    <p>Find your ideal bedtime or wake-up time based on sleep cycles</p>
+                </div>
+
+                <div class="calculator-card" role="form" aria-label="Sleep calculator">
+                    <div class="calc-options">
+                        <div class="calc-option-group">
+                            <label class="calc-option-label">I want to:</label>
+                            <div class="calc-option-buttons" role="radiogroup" aria-label="Calculation mode">
+                                <button class="calc-option-btn active" data-mode="wake" role="radio" aria-checked="true">Wake up at</button>
+                                <button class="calc-option-btn" data-mode="bedtime" role="radio" aria-checked="false">Go to bed at</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-inputs" id="calc-inputs">
+                        <div class="form-group">
+                            <label for="calc-time">Time</label>
+                            <div class="time-input-group">
+                                <input type="time" id="calc-time" class="form-control" value="07:00" step="900">
+                                <div class="time-buttons">
+                                    <button class="time-btn" data-minutes="0">Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="calc-cycles">Sleep Cycles</label>
+                            <select id="calc-cycles" class="form-control">
+                                <option value="4">4 cycles (~6 hours)</option>
+                                <option value="5" selected>5 cycles (~7.5 hours)</option>
+                                <option value="6">6 cycles (~9 hours)</option>
+                                <option value="7">7 cycles (~10.5 hours)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="calc-fall-asleep">Time to Fall Asleep (minutes)</label>
+                            <select id="calc-fall-asleep" class="form-control">
+                                <option value="5">5 minutes</option>
+                                <option value="10">10 minutes</option>
+                                <option value="15" selected>15 minutes</option>
+                                <option value="20">20 minutes</option>
+                                <option value="30">30 minutes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="calc-age">Age</label>
+                            <select id="calc-age" class="form-control">
+                                <option value="newborn">Newborn (0-3 months)</option>
+                                <option value="infant">Infant (4-11 months)</option>
+                                <option value="toddler">Toddler (1-2 years)</option>
+                                <option value="preschooler">Preschooler (3-5 years)</option>
+                                <option value="school">School-age (6-12 years)</option>
+                                <option value="teen">Teenager (13-17 years)</option>
+                                <option value="young-adult">Young Adult (18-25 years)</option>
+                                <option value="adult" selected>Adult (26-64 years)</option>
+                                <option value="older-adult">Older Adult (65+ years)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calc-actions">
+                        <button id="calc-submit" class="btn btn-primary btn-lg">Calculate</button>
+                        <button id="calc-reset" class="btn btn-secondary">Reset</button>
+                    </div>
+
+                    <div id="calc-results" class="calc-results" hidden>
+                        <div class="calc-results-header">
+                            <h3>Suggested Times</h3>
+                            <p class="calc-results-subtitle">Based on your preferences, here are the recommended times to sleep.</p>
+                        </div>
+                        <div id="calc-results-list" class="calc-results-list"></div>
+                        <div class="calc-results-disclaimer">
+                            <p>⚠️ These times are estimates. Individual sleep needs and sleep-cycle lengths vary. <a href="/disclaimer.html">Learn more</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Overview -->
+        <section class="tools-overview" aria-labelledby="tools-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="tools-heading">All Sleep Tools</h2>
+                    <p>Explore our suite of sleep calculators and guides</p>
+                </div>
+
+                <div class="tools-grid">
+                    <article class="tool-card">
+                        <div class="tool-card-icon">⏰</div>
+                        <h3><a href="/bedtime-calculator.html">Bedtime Calculator</a></h3>
+                        <p>Find the best time to go to bed based on your wake-up time and sleep cycles.</p>
+                        <a href="/bedtime-calculator.html" class="btn btn-text">Calculate Bedtime →</a>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="tool-card-icon">🌅</div>
+                        <h3><a href="/wake-up-calculator.html">Wake-Up Calculator</a></h3>
+                        <p>Determine the ideal wake-up time based on your bedtime and sleep cycle goals.</p>
+                        <a href="/wake-up-calculator.html" class="btn btn-text">Calculate Wake-Up →</a>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="tool-card-icon">🔄</div>
+                        <h3><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></h3>
+                        <p>Understand your sleep cycles and how they affect your rest quality.</p>
+                        <a href="/sleep-cycle-calculator.html" class="btn btn-text">Analyze Cycles →</a>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="tool-card-icon">💳</div>
+                        <h3><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></h3>
+                        <p>Track your weekly sleep and calculate your sleep debt.</p>
+                        <a href="/sleep-debt-calculator.html" class="btn btn-text">Calculate Debt →</a>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="tool-card-icon">⏱️</div>
+                        <h3><a href="/sleep-duration-calculator.html">Sleep Duration Calculator</a></h3>
+                        <p>Calculate exactly how long you slept based on bedtime and wake-up time.</p>
+                        <a href="/sleep-duration-calculator.html" class="btn btn-text">Calculate Duration →</a>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="tool-card-icon">😴</div>
+                        <h3><a href="/nap-calculator.html">Nap Calculator</a></h3>
+                        <p>Plan the perfect nap to boost energy without affecting nighttime sleep.</p>
+                        <a href="/nap-calculator.html" class="btn btn-text">Plan a Nap →</a>
+                    </article>
+
+                    <article class="tool-card">
+                        <div class="tool-card-icon">👶</div>
+                        <h3><a href="/age-sleep-calculator.html">Age-Based Sleep Guide</a></h3>
+                        <p>Find recommended sleep durations for every age group.</p>
+                        <a href="/age-sleep-calculator.html" class="btn btn-text">View Guide →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Blog Posts -->
+        <section class="blog-preview" aria-labelledby="blog-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="blog-heading">Latest Sleep Articles</h2>
+                    <p>Evidence-based sleep education to help you rest better</p>
+                    <a href="/blog/index.html" class="btn btn-text">View All Articles →</a>
+                </div>
+
+                <div class="blog-preview-grid" id="blog-preview">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Ad Slots -->
+        <div class="ad-slot ad-slot-header" aria-label="Advertisement">
+            <!-- AdSense code will be inserted here after approval -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo logo-footer">
+                        <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" fill="#4A6CF7" opacity="0.2"/>
+                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" fill="#4A6CF7" opacity="0.4"/>
+                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
+                    </a>
+                    <p>Plan better sleep. Wake up refreshed.</p>
+                    <p class="footer-disclaimer">Provides general educational information and calculator estimates. Not a substitute for professional medical advice.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Sleep Tools</h4>
+                        <ul>
+                            <li><a href="/sleep-calculator.html">Sleep Calculator</a></li>
+                            <li><a href="/bedtime-calculator.html">Bedtime Calculator</a></li>
+                            <li><a href="/wake-up-calculator.html">Wake-Up Calculator</a></li>
+                            <li><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
+                            <li><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
+                            <li><a href="/nap-calculator.html">Nap Calculator</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="/blog/index.html">Blog</a></li>
+                            <li><a href="/faq.html">FAQ</a></li>
+                            <li><a href="/age-sleep-calculator.html">Sleep by Age</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="/about.html">About</a></li>
+                            <li><a href="/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="/terms.html">Terms of Use</a></li>
+                            <li><a href="/disclaimer.html">Disclaimer</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SleepWise. All rights reserved.</p>
+                <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="/disclaimer.html">View Disclaimer</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/config.js" defer></script>
+    <script src="/js/calculator.js" defer></script>
+    <script src="/js/sleep-calculator.js" defer></script>
+    <script src="/js/navigation.js" defer></script>
+    <script src="/js/blog.js" defer></script>
+    <script src="/js/cookie-consent.js" defer></script>
+    <script src="/js/main.js" defer></script>
+</body>
+</html>
