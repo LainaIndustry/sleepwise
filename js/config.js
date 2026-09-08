@@ -18,7 +18,8 @@ const SITE_CONFIG = {
     
     // Google Analytics - Replace with your Measurement ID after setup
     // Format: G-XXXXXXXXXX
-    analyticsId: '',
+    analyticsId: 'G-XXXXXXXXXX',
+enableAnalytics: true,
     
     // Social
     twitterHandle: '@SleepWise',
