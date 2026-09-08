@@ -1,0 +1,10 @@
+# robots.txt for SleepWise
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /js/
+Disallow: /css/
+
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
