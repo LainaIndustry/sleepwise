@@ -14,7 +14,8 @@ const SITE_CONFIG = {
     
     // Google AdSense - Replace with your Publisher ID after approval
     // Format: ca-pub-XXXXXXXXXX
-    adsensePublisherId: '',
+    adsensePublisherId: 'ca-pub-XXXXXXXXXX',
+enableAdsense: true,
     
     // Google Analytics - Replace with your Measurement ID after setup
     // Format: G-XXXXXXXXXX
