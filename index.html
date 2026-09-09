@@ -8,70 +8,647 @@
     <link rel="canonical" href="https://YOUR-DOMAIN.com/">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Sleep Calculator - Calculate Your Ideal Bedtime | SleepWise">
     <meta property="og:description" content="Calculate your ideal bedtime and wake-up time using our free sleep calculator. Plan better sleep cycles and wake up refreshed.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://YOUR-DOMAIN.com/">
-    <meta property="og:image" content="https://YOUR-DOMAIN.com/assets/og-image.jpg">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sleep Calculator - Calculate Your Ideal Bedtime | SleepWise">
     <meta name="twitter:description" content="Calculate your ideal bedtime and wake-up time using our free sleep calculator.">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <meta name="theme-color" content="#4A6CF7">
     
-    <!-- Styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "SleepWise",
-        "url": "https://YOUR-DOMAIN.com/",
-        "description": "Calculate your ideal bedtime and wake-up time using our free sleep calculator.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://YOUR-DOMAIN.com/blog/index.html?q={search_term_string}",
-            "query-input": "required name=search_term_string"
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "SleepWise",
-        "url": "https://YOUR-DOMAIN.com/",
-        "logo": "https://YOUR-DOMAIN.com/assets/logo.svg",
-        "description": "Free sleep calculators and educational resources to help you plan better sleep.",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "YOUR_EMAIL@example.com",
-            "contactType": "customer service"
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8fafc;
+            color: #1a2332;
+            line-height: 1.6;
         }
-    }
-    </script>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #1a2332;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .logo-highlight {
+            color: #4A6CF7;
+        }
+        .tagline {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 400;
+            margin-left: 4px;
+        }
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+        .nav-list a {
+            text-decoration: none;
+            color: #4a5568;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            transition: all 0.2s;
+        }
+        .nav-list a:hover {
+            background: #f1f4f9;
+            color: #1a2332;
+        }
+        .nav-list a.active {
+            color: #4A6CF7;
+            background: #e8edfd;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 4px;
+        }
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            padding: 16px 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 12px;
+        }
+        .mobile-nav a {
+            padding: 10px 0;
+            text-decoration: none;
+            color: #4a5568;
+            border-bottom: 1px solid #f1f4f9;
+        }
+        .mobile-nav a:hover {
+            color: #4A6CF7;
+        }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 44px;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: #4A6CF7;
+            color: #fff;
+            border-color: #4A6CF7;
+        }
+        .btn-primary:hover {
+            background: #3a56d4;
+            border-color: #3a56d4;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 108, 247, 0.3);
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #1a2332;
+            border-color: #e2e8f0;
+        }
+        .btn-secondary:hover {
+            background: #f1f4f9;
+        }
+        .btn-text {
+            background: transparent;
+            color: #4A6CF7;
+            border-color: transparent;
+            padding: 8px 16px;
+        }
+        .btn-text:hover {
+            background: #e8edfd;
+        }
+        .btn-lg {
+            padding: 14px 32px;
+            font-size: 1.125rem;
+            min-height: 52px;
+        }
+        .btn-sm {
+            padding: 6px 16px;
+            font-size: 0.875rem;
+            min-height: 36px;
+        }
+        /* Hero */
+        .hero {
+            padding: 60px 0 80px;
+            background: linear-gradient(135deg, #4A6CF7 0%, #6C8AFF 100%);
+            color: #fff;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #fff;
+            line-height: 1.2;
+        }
+        .hero-text {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .hero-buttons .btn-primary {
+            background: #fff;
+            color: #4A6CF7;
+            border-color: #fff;
+        }
+        .hero-buttons .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: #3a56d4;
+        }
+        .hero-buttons .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .hero-buttons .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        .hero-features {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .hero-feature {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-sleep-icon svg {
+            width: 200px;
+            height: 200px;
+        }
+        /* Calculator Section */
+        .calculator-section {
+            padding: 60px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .section-header p {
+            font-size: 1.125rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .calculator-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .calc-options {
+            margin-bottom: 24px;
+        }
+        .calc-option-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .calc-option-buttons {
+            display: flex;
+            gap: 8px;
+            background: #f1f4f9;
+            padding: 4px;
+            border-radius: 8px;
+        }
+        .calc-option-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: #4a5568;
+            background: transparent;
+            transition: all 0.2s;
+            min-height: 40px;
+        }
+        .calc-option-btn:hover {
+            color: #1a2332;
+        }
+        .calc-option-btn.active {
+            background: #fff;
+            color: #1a2332;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .calc-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 0.875rem;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #1a2332;
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+            min-height: 44px;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #4A6CF7;
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+        }
+        .time-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .time-input-group .form-control {
+            flex: 1;
+        }
+        .time-btn {
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #fff;
+            color: #4a5568;
+            cursor: pointer;
+            min-height: 36px;
+            transition: all 0.2s;
+        }
+        .time-btn:hover {
+            background: #f1f4f9;
+        }
+        .calc-actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        .calc-actions .btn {
+            flex: 1;
+            min-width: 120px;
+        }
+        .calc-results {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .calc-results-header h3 {
+            margin-bottom: 4px;
+        }
+        .calc-results-subtitle {
+            color: #718096;
+            font-size: 0.875rem;
+        }
+        .calc-results-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .result-card {
+            background: #f1f4f9;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #edf2f7;
+        }
+        .result-card .result-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a2332;
+        }
+        .result-card .result-label {
+            font-size: 0.75rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .result-card .result-detail {
+            font-size: 0.75rem;
+            color: #4a5568;
+            margin-top: 4px;
+        }
+        .calc-results-disclaimer {
+            padding: 16px;
+            background: #f1f4f9;
+            border-radius: 8px;
+            border-left: 3px solid #ed8936;
+            font-size: 0.875rem;
+            color: #4a5568;
+        }
+        .calc-error {
+            text-align: center;
+            padding: 20px;
+            color: #fc8181;
+        }
+        /* Tools Overview */
+        .tools-overview {
+            padding: 60px 0;
+            background: #f1f4f9;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .tool-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        .tool-card-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .tool-card h3 {
+            margin-bottom: 8px;
+            font-size: 1.125rem;
+        }
+        .tool-card p {
+            font-size: 0.9375rem;
+            color: #4a5568;
+            margin-bottom: 12px;
+        }
+        /* Footer */
+        .site-footer {
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-brand p {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+        .footer-disclaimer {
+            font-size: 0.75rem;
+            color: #718096;
+            max-width: 300px;
+        }
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .footer-column h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+        .footer-column ul li a {
+            color: #4a5568;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-column ul li a:hover {
+            color: #4A6CF7;
+        }
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        .footer-bottom p {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+        .footer-legal {
+            font-size: 0.75rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-top: 2px solid #4A6CF7;
+            padding: 16px 0;
+            z-index: 300;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .cookie-consent.visible {
+            transform: translateY(0);
+        }
+        .cookie-consent-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .cookie-consent-content p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #4a5568;
+            flex: 1;
+            min-width: 200px;
+        }
+        .cookie-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .cookie-buttons .btn {
+            min-height: 36px;
+            padding: 6px 16px;
+            font-size: 0.875rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-text {
+                font-size: 1rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-features {
+                justify-content: center;
+            }
+            .hero-visual {
+                display: none;
+            }
+            .calc-inputs {
+                grid-template-columns: 1fr;
+            }
+            .calc-actions {
+                flex-direction: column;
+            }
+            .calc-actions .btn {
+                min-width: auto;
+            }
+            .calc-results-list {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .footer-links {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .nav-list {
+                display: none;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .mobile-nav.open {
+                display: flex;
+            }
+            .calculator-card {
+                padding: 20px;
+            }
+            .hero {
+                padding: 40px 0 60px;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .calc-results-list {
+                grid-template-columns: 1fr;
+            }
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Skip to content -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <!-- Cookie Consent -->
     <div id="cookie-consent" class="cookie-consent" role="alert" aria-label="Cookie consent">
         <div class="cookie-consent-content">
-            <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
+            <p>We use cookies to improve your experience. By continuing, you agree to our <a href="cookie-policy.html">Cookie Policy</a>.</p>
             <div class="cookie-buttons">
                 <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
                 <button id="cookie-reject" class="btn btn-secondary btn-sm">Reject Non-Essential</button>
-                <a href="/cookie-policy.html" class="btn btn-text btn-sm">Learn More</a>
+                <a href="cookie-policy.html" class="btn btn-text btn-sm">Learn More</a>
             </div>
         </div>
     </div>
@@ -81,56 +658,39 @@
         <div class="container">
             <div class="header-inner">
                 <div class="logo-container">
-                    <a href="/" class="logo" aria-label="SleepWise Home">
-                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S6 21.523 6 16 10.477 6 16 6z" fill="#4A6CF7"/>
-                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6zm0 2c2.209 0 4 1.791 4 4s-1.791 4-4 4-4-1.791-4-4 1.791-4 4-4z" fill="#4A6CF7"/>
-                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 22l2-2M21 22l-2-2M14 9l1 3M18 9l-1 3" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
+                    <a href="/" class="logo">
+                        <span style="font-size:1.5rem;color:#4A6CF7;">🌙</span>
                         <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
+                        <span class="tagline">Plan Better Sleep</span>
                     </a>
-                    <span class="tagline">Plan Better Sleep</span>
                 </div>
 
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span class="nav-toggle-line"></span>
-                    <span class="nav-toggle-line"></span>
-                    <span class="nav-toggle-line"></span>
-                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
 
-                <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
+                <nav class="main-nav" role="navigation" aria-label="Main navigation">
                     <ul class="nav-list">
-                        <li><a href="/sleep-calculator.html" class="nav-link active">Sleep Calculator</a></li>
-                        <li class="nav-dropdown">
-                            <button class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Sleep Tools <span class="dropdown-arrow">▾</span></button>
-                            <ul class="nav-dropdown-menu" role="menu">
-                                <li><a href="/bedtime-calculator.html" role="menuitem">Bedtime Calculator</a></li>
-                                <li><a href="/wake-up-calculator.html" role="menuitem">Wake-Up Calculator</a></li>
-                                <li><a href="/sleep-cycle-calculator.html" role="menuitem">Sleep Cycle Calculator</a></li>
-                                <li><a href="/sleep-debt-calculator.html" role="menuitem">Sleep Debt Calculator</a></li>
-                                <li><a href="/sleep-duration-calculator.html" role="menuitem">Sleep Duration Calculator</a></li>
-                                <li><a href="/nap-calculator.html" role="menuitem">Nap Calculator</a></li>
-                                <li><a href="/age-sleep-calculator.html" role="menuitem">Age-Based Sleep Guide</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/blog/index.html" class="nav-link">Blog</a></li>
-                        <li><a href="/faq.html" class="nav-link">FAQ</a></li>
-                        <li><a href="/about.html" class="nav-link">About</a></li>
+                        <li><a href="sleep-calculator.html">Sleep Calculator</a></li>
+                        <li><a href="bedtime-calculator.html">Bedtime</a></li>
+                        <li><a href="wake-up-calculator.html">Wake-Up</a></li>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="about.html">About</a></li>
                     </ul>
-                    
-                    <div class="nav-actions">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                            <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <circle cx="12" cy="12" r="5"/>
-                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                            </svg>
-                            <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                            </svg>
-                        </button>
-                    </div>
                 </nav>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav" id="mobile-nav">
+                <a href="sleep-calculator.html">Sleep Calculator</a>
+                <a href="bedtime-calculator.html">Bedtime Calculator</a>
+                <a href="wake-up-calculator.html">Wake-Up Calculator</a>
+                <a href="sleep-cycle-calculator.html">Sleep Cycle Calculator</a>
+                <a href="sleep-debt-calculator.html">Sleep Debt Calculator</a>
+                <a href="nap-calculator.html">Nap Calculator</a>
+                <a href="age-sleep-calculator.html">Age-Based Sleep Guide</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
             </div>
         </div>
     </header>
@@ -138,15 +698,15 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero" aria-labelledby="hero-heading">
+        <section class="hero">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
-                        <h1 id="hero-heading">Calculate Your Ideal Bedtime and Wake-Up Time</h1>
+                        <h1>Calculate Your Ideal Bedtime and Wake-Up Time</h1>
                         <p class="hero-text">Use our free sleep calculators to plan your bedtime, wake-up time, sleep cycles, naps, and sleep schedule.</p>
                         <div class="hero-buttons">
                             <a href="#calculator-section" class="btn btn-primary btn-lg">Calculate My Sleep</a>
-                            <a href="/sleep-tools.html" class="btn btn-secondary btn-lg">Explore Sleep Tools</a>
+                            <a href="#tools-section" class="btn btn-secondary btn-lg">Explore Sleep Tools</a>
                         </div>
                         <div class="hero-features">
                             <span class="hero-feature">🕐 Sleep Cycle Based</span>
@@ -156,7 +716,7 @@
                     </div>
                     <div class="hero-visual">
                         <div class="hero-sleep-icon">
-                            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="100" cy="100" r="90" fill="#F0F4FF" stroke="#4A6CF7" stroke-width="2"/>
                                 <path d="M100 30C61.34 30 30 61.34 30 100s31.34 70 70 70 70-31.34 70-70-31.34-70-70-70zm0 20c27.61 0 50 22.39 50 50s-22.39 50-50 50-50-22.39-50-50 22.39-50 50-50z" fill="#4A6CF7" opacity="0.1"/>
                                 <circle cx="100" cy="100" r="40" fill="#4A6CF7" opacity="0.15"/>
@@ -170,32 +730,30 @@
         </section>
 
         <!-- Calculator Section -->
-        <section id="calculator-section" class="calculator-section" aria-labelledby="calc-heading">
+        <section id="calculator-section" class="calculator-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 id="calc-heading">Sleep Calculator</h2>
+                    <h2>Sleep Calculator</h2>
                     <p>Find your ideal bedtime or wake-up time based on sleep cycles</p>
                 </div>
 
-                <div class="calculator-card" role="form" aria-label="Sleep calculator">
+                <div class="calculator-card">
                     <div class="calc-options">
                         <div class="calc-option-group">
                             <label class="calc-option-label">I want to:</label>
-                            <div class="calc-option-buttons" role="radiogroup" aria-label="Calculation mode">
+                            <div class="calc-option-buttons" role="radiogroup">
                                 <button class="calc-option-btn active" data-mode="wake" role="radio" aria-checked="true">Wake up at</button>
                                 <button class="calc-option-btn" data-mode="bedtime" role="radio" aria-checked="false">Go to bed at</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="calc-inputs" id="calc-inputs">
+                    <div class="calc-inputs">
                         <div class="form-group">
                             <label for="calc-time">Time</label>
                             <div class="time-input-group">
-                                <input type="time" id="calc-time" class="form-control" value="07:00" step="900">
-                                <div class="time-buttons">
-                                    <button class="time-btn" data-minutes="0">Now</button>
-                                </div>
+                                <input type="time" id="calc-time" class="form-control" step="900">
+                                <button class="time-btn" id="calc-now-btn">Now</button>
                             </div>
                         </div>
 
@@ -248,7 +806,7 @@
                         </div>
                         <div id="calc-results-list" class="calc-results-list"></div>
                         <div class="calc-results-disclaimer">
-                            <p>⚠️ These times are estimates. Individual sleep needs and sleep-cycle lengths vary. <a href="/disclaimer.html">Learn more</a>.</p>
+                            <p>⚠️ These times are estimates. Individual sleep needs and sleep-cycle lengths vary. <a href="disclaimer.html">Learn more</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -256,85 +814,58 @@
         </section>
 
         <!-- Tools Overview -->
-        <section class="tools-overview" aria-labelledby="tools-heading">
+        <section id="tools-section" class="tools-overview">
             <div class="container">
                 <div class="section-header">
-                    <h2 id="tools-heading">All Sleep Tools</h2>
+                    <h2>All Sleep Tools</h2>
                     <p>Explore our suite of sleep calculators and guides</p>
                 </div>
 
                 <div class="tools-grid">
-                    <article class="tool-card">
+                    <a href="bedtime-calculator.html" class="tool-card">
                         <div class="tool-card-icon">⏰</div>
-                        <h3><a href="/bedtime-calculator.html">Bedtime Calculator</a></h3>
+                        <h3>Bedtime Calculator</h3>
                         <p>Find the best time to go to bed based on your wake-up time and sleep cycles.</p>
-                        <a href="/bedtime-calculator.html" class="btn btn-text">Calculate Bedtime →</a>
-                    </article>
+                    </a>
 
-                    <article class="tool-card">
+                    <a href="wake-up-calculator.html" class="tool-card">
                         <div class="tool-card-icon">🌅</div>
-                        <h3><a href="/wake-up-calculator.html">Wake-Up Calculator</a></h3>
+                        <h3>Wake-Up Calculator</h3>
                         <p>Determine the ideal wake-up time based on your bedtime and sleep cycle goals.</p>
-                        <a href="/wake-up-calculator.html" class="btn btn-text">Calculate Wake-Up →</a>
-                    </article>
+                    </a>
 
-                    <article class="tool-card">
+                    <a href="sleep-cycle-calculator.html" class="tool-card">
                         <div class="tool-card-icon">🔄</div>
-                        <h3><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></h3>
+                        <h3>Sleep Cycle Calculator</h3>
                         <p>Understand your sleep cycles and how they affect your rest quality.</p>
-                        <a href="/sleep-cycle-calculator.html" class="btn btn-text">Analyze Cycles →</a>
-                    </article>
+                    </a>
 
-                    <article class="tool-card">
+                    <a href="sleep-debt-calculator.html" class="tool-card">
                         <div class="tool-card-icon">💳</div>
-                        <h3><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></h3>
+                        <h3>Sleep Debt Calculator</h3>
                         <p>Track your weekly sleep and calculate your sleep debt.</p>
-                        <a href="/sleep-debt-calculator.html" class="btn btn-text">Calculate Debt →</a>
-                    </article>
+                    </a>
 
-                    <article class="tool-card">
+                    <a href="sleep-duration-calculator.html" class="tool-card">
                         <div class="tool-card-icon">⏱️</div>
-                        <h3><a href="/sleep-duration-calculator.html">Sleep Duration Calculator</a></h3>
+                        <h3>Sleep Duration Calculator</h3>
                         <p>Calculate exactly how long you slept based on bedtime and wake-up time.</p>
-                        <a href="/sleep-duration-calculator.html" class="btn btn-text">Calculate Duration →</a>
-                    </article>
+                    </a>
 
-                    <article class="tool-card">
+                    <a href="nap-calculator.html" class="tool-card">
                         <div class="tool-card-icon">😴</div>
-                        <h3><a href="/nap-calculator.html">Nap Calculator</a></h3>
+                        <h3>Nap Calculator</h3>
                         <p>Plan the perfect nap to boost energy without affecting nighttime sleep.</p>
-                        <a href="/nap-calculator.html" class="btn btn-text">Plan a Nap →</a>
-                    </article>
+                    </a>
 
-                    <article class="tool-card">
+                    <a href="age-sleep-calculator.html" class="tool-card">
                         <div class="tool-card-icon">👶</div>
-                        <h3><a href="/age-sleep-calculator.html">Age-Based Sleep Guide</a></h3>
+                        <h3>Age-Based Sleep Guide</h3>
                         <p>Find recommended sleep durations for every age group.</p>
-                        <a href="/age-sleep-calculator.html" class="btn btn-text">View Guide →</a>
-                    </article>
+                    </a>
                 </div>
             </div>
         </section>
-
-        <!-- Latest Blog Posts -->
-        <section class="blog-preview" aria-labelledby="blog-heading">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="blog-heading">Latest Sleep Articles</h2>
-                    <p>Evidence-based sleep education to help you rest better</p>
-                    <a href="/blog/index.html" class="btn btn-text">View All Articles →</a>
-                </div>
-
-                <div class="blog-preview-grid" id="blog-preview">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- AdSense Ad Slots -->
-        <div class="ad-slot ad-slot-header" aria-label="Advertisement">
-            <!-- AdSense code will be inserted here after approval -->
-        </div>
     </main>
 
     <!-- Footer -->
@@ -342,13 +873,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="logo logo-footer">
-                        <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" fill="#4A6CF7" opacity="0.2"/>
-                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" fill="#4A6CF7" opacity="0.4"/>
-                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
+                    <a href="/" class="logo" style="font-size:1.125rem;margin-bottom:8px;display:inline-flex;">
+                        <span style="font-size:1.2rem;color:#4A6CF7;">🌙</span>
+                        <span>Sleep<span style="color:#4A6CF7;">Wise</span></span>
                     </a>
                     <p>Plan better sleep. Wake up refreshed.</p>
                     <p class="footer-disclaimer">Provides general educational information and calculator estimates. Not a substitute for professional medical advice.</p>
@@ -358,39 +885,39 @@
                     <div class="footer-column">
                         <h4>Sleep Tools</h4>
                         <ul>
-                            <li><a href="/sleep-calculator.html">Sleep Calculator</a></li>
-                            <li><a href="/bedtime-calculator.html">Bedtime Calculator</a></li>
-                            <li><a href="/wake-up-calculator.html">Wake-Up Calculator</a></li>
-                            <li><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
-                            <li><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
-                            <li><a href="/nap-calculator.html">Nap Calculator</a></li>
+                            <li><a href="sleep-calculator.html">Sleep Calculator</a></li>
+                            <li><a href="bedtime-calculator.html">Bedtime Calculator</a></li>
+                            <li><a href="wake-up-calculator.html">Wake-Up Calculator</a></li>
+                            <li><a href="sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
+                            <li><a href="sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
+                            <li><a href="nap-calculator.html">Nap Calculator</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-column">
                         <h4>Resources</h4>
                         <ul>
-                            <li><a href="/blog/index.html">Blog</a></li>
-                            <li><a href="/faq.html">FAQ</a></li>
-                            <li><a href="/age-sleep-calculator.html">Sleep by Age</a></li>
+                            <li><a href="blog/index.html">Blog</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="age-sleep-calculator.html">Sleep by Age</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-column">
                         <h4>Company</h4>
                         <ul>
-                            <li><a href="/about.html">About</a></li>
-                            <li><a href="/contact.html">Contact</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
 
                     <div class="footer-column">
                         <h4>Legal</h4>
                         <ul>
-                            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-                            <li><a href="/terms.html">Terms of Use</a></li>
-                            <li><a href="/disclaimer.html">Disclaimer</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="terms.html">Terms of Use</a></li>
+                            <li><a href="disclaimer.html">Disclaimer</a></li>
                         </ul>
                     </div>
                 </div>
@@ -398,18 +925,275 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2026 SleepWise. All rights reserved.</p>
-                <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="/disclaimer.html">View Disclaimer</a>.</p>
+                <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="disclaimer.html">View Disclaimer</a>.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="/js/config.js" defer></script>
-    <script src="/js/calculator.js" defer></script>
-    <script src="/js/sleep-calculator.js" defer></script>
-    <script src="/js/navigation.js" defer></script>
-    <script src="/js/blog.js" defer></script>
-    <script src="/js/cookie-consent.js" defer></script>
-    <script src="/js/main.js" defer></script>
+    <script>
+    // ============================================
+    // JavaScript - All functionality in one file
+    // ============================================
+
+    // --- Cookie Consent ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.getElementById('cookie-consent');
+        const acceptBtn = document.getElementById('cookie-accept');
+        const rejectBtn = document.getElementById('cookie-reject');
+        
+        if (cookieBanner) {
+            const cookiePreference = localStorage.getItem('cookieConsent');
+            if (cookiePreference === 'accepted' || cookiePreference === 'rejected') {
+                cookieBanner.classList.remove('visible');
+            } else {
+                setTimeout(() => {
+                    cookieBanner.classList.add('visible');
+                }, 500);
+            }
+        }
+        
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                if (cookieBanner) cookieBanner.classList.remove('visible');
+            });
+        }
+        
+        if (rejectBtn) {
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                if (cookieBanner) cookieBanner.classList.remove('visible');
+            });
+        }
+    });
+
+    // --- Mobile Navigation ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        
+        if (navToggle && mobileNav) {
+            navToggle.addEventListener('click', function() {
+                mobileNav.classList.toggle('open');
+                this.textContent = mobileNav.classList.contains('open') ? '✕' : '☰';
+            });
+        }
+    });
+
+    // --- Sleep Calculator ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // Constants
+        const CYCLE_DURATION = 90;
+        
+        // DOM elements
+        const modeButtons = document.querySelectorAll('.calc-option-btn');
+        const timeInput = document.getElementById('calc-time');
+        const cyclesSelect = document.getElementById('calc-cycles');
+        const fallAsleepSelect = document.getElementById('calc-fall-asleep');
+        const ageSelect = document.getElementById('calc-age');
+        const submitBtn = document.getElementById('calc-submit');
+        const resetBtn = document.getElementById('calc-reset');
+        const resultsContainer = document.getElementById('calc-results');
+        const resultsList = document.getElementById('calc-results-list');
+        const nowBtn = document.getElementById('calc-now-btn');
+        
+        let currentMode = 'wake';
+        
+        // Set current time
+        if (timeInput) {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            timeInput.value = hours + ':' + minutes;
+        }
+        
+        // Mode toggle
+        modeButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                modeButtons.forEach(function(b) {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-checked', 'false');
+                });
+                this.classList.add('active');
+                this.setAttribute('aria-checked', 'true');
+                currentMode = this.dataset.mode;
+                
+                if (resultsContainer) {
+                    resultsContainer.hidden = true;
+                }
+            });
+        });
+        
+        // Now button
+        if (nowBtn) {
+            nowBtn.addEventListener('click', function() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                if (timeInput) {
+                    timeInput.value = hours + ':' + minutes;
+                }
+            });
+        }
+        
+        // Calculate
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function() {
+                performCalculation();
+            });
+        }
+        
+        // Enter key
+        if (timeInput) {
+            timeInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performCalculation();
+                }
+            });
+        }
+        
+        // Reset
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                if (timeInput) timeInput.value = hours + ':' + minutes;
+                if (cyclesSelect) cyclesSelect.value = '5';
+                if (fallAsleepSelect) fallAsleepSelect.value = '15';
+                if (ageSelect) ageSelect.value = 'adult';
+                if (resultsContainer) {
+                    resultsContainer.hidden = true;
+                }
+            });
+        }
+        
+        function performCalculation() {
+            if (!timeInput || !cyclesSelect) return;
+            
+            const timeStr = timeInput.value;
+            const cycles = parseInt(cyclesSelect.value, 10);
+            const fallAsleep = parseInt(fallAsleepSelect ? fallAsleepSelect.value : '15', 10);
+            
+            if (!timeStr || timeStr.length < 4) {
+                showError('Please enter a valid time.');
+                return;
+            }
+            
+            const timeParts = timeStr.split(':');
+            if (timeParts.length !== 2) {
+                showError('Please enter a valid time in HH:MM format.');
+                return;
+            }
+            
+            const hours = parseInt(timeParts[0], 10);
+            const minutes = parseInt(timeParts[1], 10);
+            
+            if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+                showError('Please enter a valid time between 00:00 and 23:59.');
+                return;
+            }
+            
+            const targetMinutes = hours * 60 + minutes;
+            
+            // Calculate bedtimes or wake times
+            let results = [];
+            
+            if (currentMode === 'wake') {
+                // Calculate bedtimes
+                const cycleOptions = [cycles - 1, cycles, cycles + 1];
+                for (var i = 0; i < cycleOptions.length; i++) {
+                    var c = cycleOptions[i];
+                    if (c < 3 || c > 8) continue;
+                    var sleepMinutes = c * CYCLE_DURATION;
+                    var bedtimeMinutes = ((targetMinutes - sleepMinutes - fallAsleep) % 1440 + 1440) % 1440;
+                    var time = minutesToTime(bedtimeMinutes);
+                    results.push({
+                        time: time.formatted12,
+                        cycles: c,
+                        sleepDuration: sleepMinutes,
+                        sleepHours: (sleepMinutes / 60).toFixed(1),
+                        isRecommended: c === cycles
+                    });
+                }
+                results.sort(function(a, b) { return a.timeMinutes - b.timeMinutes; });
+            } else {
+                // Calculate wake times
+                const cycleOptions = [cycles - 1, cycles, cycles + 1];
+                for (var i = 0; i < cycleOptions.length; i++) {
+                    var c = cycleOptions[i];
+                    if (c < 3 || c > 8) continue;
+                    var sleepMinutes = c * CYCLE_DURATION;
+                    var wakeMinutes = ((targetMinutes + fallAsleep + sleepMinutes) % 1440 + 1440) % 1440;
+                    var time = minutesToTime(wakeMinutes);
+                    results.push({
+                        time: time.formatted12,
+                        cycles: c,
+                        sleepDuration: sleepMinutes,
+                        sleepHours: (sleepMinutes / 60).toFixed(1),
+                        isRecommended: c === cycles
+                    });
+                }
+                results.sort(function(a, b) { return a.timeMinutes - b.timeMinutes; });
+            }
+            
+            if (!results || results.length === 0) {
+                showError('Unable to calculate times. Please try different values.');
+                return;
+            }
+            
+            displayResults(results);
+            
+            // Scroll to results on mobile
+            if (window.innerWidth < 768 && resultsContainer) {
+                setTimeout(function() {
+                    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+        
+        function minutesToTime(minutes) {
+            minutes = ((minutes % 1440) + 1440) % 1440;
+            var h = Math.floor(minutes / 60);
+            var m = minutes % 60;
+            var h12 = h % 12;
+            if (h12 === 0) h12 = 12;
+            var period = h >= 12 ? 'PM' : 'AM';
+            return {
+                formatted12: h12 + ':' + String(m).padStart(2, '0') + ' ' + period,
+                formatted24: String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0'),
+                hours: h,
+                minutes: m
+            };
+        }
+        
+        function showError(message) {
+            if (resultsContainer) {
+                resultsContainer.hidden = false;
+                resultsList.innerHTML = '<div class="calc-error"><p>' + message + '</p></div>';
+            }
+        }
+        
+        function displayResults(results) {
+            if (!resultsContainer || !resultsList) return;
+            
+            resultsContainer.hidden = false;
+            
+            var html = '';
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var isRecommended = result.isRecommended;
+                html += '<div class="result-card" style="' + (isRecommended ? 'border:2px solid #4A6CF7;' : '') + '">';
+                html += '<div class="result-time">' + result.time + '</div>';
+                html += '<div class="result-label">' + (i === 0 ? 'Recommended' : 'Alternative') + '</div>';
+                html += '<div class="result-detail">' + result.sleepHours + 'h sleep • ' + result.cycles + ' cycles</div>';
+                html += '</div>';
+            }
+            
+            resultsList.innerHTML = html;
+        }
+    });
+    </script>
 </body>
 </html>
