@@ -4,251 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sleep Blog - Expert Sleep Tips & Advice | SleepWise</title>
-    <meta name="description" content="Expert sleep articles, tips, and advice to help you sleep better. Evidence-based content from sleep researchers and health professionals.">
+    <meta name="description" content="Expert sleep articles, tips, and advice to help you sleep better. Evidence-based content from sleep researchers.">
     <link rel="canonical" href="https://YOUR-DOMAIN.com/blog/index.html">
     <meta name="robots" content="index, follow">
-    
     <meta property="og:title" content="Sleep Blog - Expert Sleep Tips & Advice | SleepWise">
     <meta property="og:description" content="Expert sleep articles, tips, and advice to help you sleep better.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://YOUR-DOMAIN.com/blog/index.html">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sleep Blog - Expert Sleep Tips & Advice | SleepWise">
     <meta name="twitter:description" content="Expert sleep articles, tips, and advice to help you sleep better.">
-    
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
     <meta name="theme-color" content="#4A6CF7">
     
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/blog.css">
+    <style>
+        /* Same styles as index.html - include the full style block */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8fafc; color: #1a2332; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { color: #4A6CF7; text-decoration: none; }
+        a:hover { color: #3a56d4; }
+        .site-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #1a2332; font-weight: 700; font-size: 1.25rem; }
+        .logo-highlight { color: #4A6CF7; }
+        .tagline { font-size: 0.75rem; color: #718096; font-weight: 400; }
+        .nav-list { display: flex; list-style: none; gap: 4px; align-items: center; flex-wrap: wrap; }
+        .nav-list a { text-decoration: none; color: #4a5568; padding: 8px 14px; border-radius: 8px; font-weight: 500; font-size: 0.875rem; transition: all 0.2s; }
+        .nav-list a:hover { background: #f1f4f9; color: #1a2332; }
+        .nav-list a.active { color: #4A6CF7; background: #e8edfd; }
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 4px 8px; }
+        .mobile-nav { display: none; flex-direction: column; padding: 16px 0; border-top: 1px solid #e2e8f0; margin-top: 12px; }
+        .mobile-nav a { padding: 10px 0; text-decoration: none; color: #4a5568; border-bottom: 1px solid #f1f4f9; }
+        .mobile-nav a:hover { color: #4A6CF7; }
+        .page-header { padding: 40px 0 24px; background: #f1f4f9; border-bottom: 1px solid #e2e8f0; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 8px; }
+        .page-header p { font-size: 1.125rem; color: #4a5568; max-width: 700px; }
+        .breadcrumbs { margin-bottom: 16px; font-size: 0.875rem; color: #718096; }
+        .breadcrumbs a { color: #4a5568; text-decoration: none; }
+        .breadcrumbs a:hover { color: #4A6CF7; }
+        .blog-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 40px 0; }
+        .article-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 20px; transition: all 0.2s; }
+        .article-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+        .article-card h3 { margin-bottom: 8px; font-size: 1.25rem; }
+        .article-card h3 a { color: #1a2332; text-decoration: none; }
+        .article-card h3 a:hover { color: #4A6CF7; }
+        .article-card .blog-meta { font-size: 0.8125rem; color: #718096; margin-bottom: 8px; }
+        .article-card .blog-excerpt { font-size: 0.9375rem; color: #4a5568; margin-bottom: 12px; }
+        .article-card .read-more { color: #4A6CF7; text-decoration: none; font-weight: 600; }
+        .article-card .read-more:hover { text-decoration: underline; }
+        .sidebar-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 20px; }
+        .sidebar-card h3 { font-size: 1.125rem; margin-bottom: 12px; }
+        .sidebar-links { list-style: none; padding: 0; }
+        .sidebar-links li { margin-bottom: 8px; }
+        .sidebar-links li a { color: #4a5568; text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid #f1f4f9; transition: all 0.2s; }
+        .sidebar-links li a:hover { color: #4A6CF7; padding-left: 8px; }
+        .site-footer { background: #fff; border-top: 1px solid #e2e8f0; padding: 40px 0 20px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; margin-bottom: 32px; }
+        .footer-brand p { font-size: 0.875rem; color: #718096; margin-bottom: 8px; }
+        .footer-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .footer-column h4 { font-size: 0.875rem; font-weight: 600; margin-bottom: 12px; }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column ul li { margin-bottom: 8px; }
+        .footer-column ul li a { color: #4a5568; font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+        .footer-column ul li a:hover { color: #4A6CF7; }
+        .footer-bottom { padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; }
+        .footer-bottom p { font-size: 0.875rem; color: #718096; margin-bottom: 8px; }
+        .footer-legal { font-size: 0.75rem; max-width: 600px; margin: 0 auto; }
+        @media (max-width: 768px) {
+            .blog-layout { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-links { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .page-header h1 { font-size: 1.75rem; }
+            .nav-list { display: none; }
+            .nav-toggle { display: block; }
+            .mobile-nav.open { display: flex; }
+        }
+        @media (max-width: 480px) { .footer-links { grid-template-columns: 1fr; } }
+    </style>
 </head>
 <body>
-    <!-- Header same as other pages -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div id="cookie-consent" class="cookie-consent" role="alert" aria-label="Cookie consent">
-        <div class="cookie-consent-content">
-            <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
-            <div class="cookie-buttons">
-                <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
-                <button id="cookie-reject" class="btn btn-secondary btn-sm">Reject Non-Essential</button>
-                <a href="/cookie-policy.html" class="btn btn-text btn-sm">Learn More</a>
-            </div>
+<header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <span style="font-size:1.5rem;color:#4A6CF7;">🌙</span>
+                <span>Sleep<span class="logo-highlight">Wise</span></span>
+                <span class="tagline">Plan Better Sleep</span>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="../sleep-calculator.html">Sleep Calculator</a></li>
+                    <li><a href="../bedtime-calculator.html">Bedtime</a></li>
+                    <li><a href="../wake-up-calculator.html">Wake-Up</a></li>
+                    <li><a href="index.html" class="active">Blog</a></li>
+                    <li><a href="../faq.html">FAQ</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="../sleep-calculator.html">Sleep Calculator</a>
+            <a href="../bedtime-calculator.html">Bedtime Calculator</a>
+            <a href="../wake-up-calculator.html">Wake-Up Calculator</a>
+            <a href="../sleep-cycle-calculator.html">Sleep Cycle Calculator</a>
+            <a href="../sleep-debt-calculator.html">Sleep Debt Calculator</a>
+            <a href="../nap-calculator.html">Nap Calculator</a>
+            <a href="../age-sleep-calculator.html">Age-Based Sleep Guide</a>
+            <a href="index.html">Blog</a>
+            <a href="../faq.html">FAQ</a>
+            <a href="../about.html">About</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumbs"><a href="../index.html">Home</a> &gt; <span>Blog</span></div>
+            <h1>SleepWise Blog</h1>
+            <p>Evidence-based sleep education, tips, and tools to help you rest better.</p>
         </div>
     </div>
 
-    <header class="site-header" role="banner">
-        <!-- Same as other pages -->
-        <div class="container">
-            <div class="header-inner">
-                <div class="logo-container">
-                    <a href="/" class="logo" aria-label="SleepWise Home">
-                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" fill="#4A6CF7"/>
-                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" fill="#4A6CF7"/>
-                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 22l2-2M21 22l-2-2M14 9l1 3M18 9l-1 3" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
-                    </a>
-                    <span class="tagline">Plan Better Sleep</span>
+    <div class="container">
+        <div class="blog-layout">
+            <div class="blog-main">
+                
+                <div class="article-card">
+                    <h3><a href="how-sleep-cycles-work.html">How Sleep Cycles Work: A Complete Guide</a></h3>
+                    <div class="blog-meta">📅 January 15, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Learn how sleep cycles work, why they matter, and how to use them to wake up feeling refreshed.</p>
+                    <a href="how-sleep-cycles-work.html" class="read-more">Read More →</a>
                 </div>
 
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span class="nav-toggle-line"></span>
-                    <span class="nav-toggle-line"></span>
-                    <span class="nav-toggle-line"></span>
-                </button>
+                <div class="article-card">
+                    <h3><a href="how-many-hours-of-sleep-do-you-need.html">How Many Hours of Sleep Do You Really Need?</a></h3>
+                    <div class="blog-meta">📅 January 20, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Discover how much sleep you really need based on your age, lifestyle, and individual factors.</p>
+                    <a href="how-many-hours-of-sleep-do-you-need.html" class="read-more">Read More →</a>
+                </div>
 
-                <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
-                    <ul class="nav-list">
-                        <li><a href="/sleep-calculator.html" class="nav-link">Sleep Calculator</a></li>
-                        <li class="nav-dropdown">
-                            <button class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Sleep Tools <span class="dropdown-arrow">▾</span></button>
-                            <ul class="nav-dropdown-menu" role="menu">
-                                <li><a href="/bedtime-calculator.html" role="menuitem">Bedtime Calculator</a></li>
-                                <li><a href="/wake-up-calculator.html" role="menuitem">Wake-Up Calculator</a></li>
-                                <li><a href="/sleep-cycle-calculator.html" role="menuitem">Sleep Cycle Calculator</a></li>
-                                <li><a href="/sleep-debt-calculator.html" role="menuitem">Sleep Debt Calculator</a></li>
-                                <li><a href="/sleep-duration-calculator.html" role="menuitem">Sleep Duration Calculator</a></li>
-                                <li><a href="/nap-calculator.html" role="menuitem">Nap Calculator</a></li>
-                                <li><a href="/age-sleep-calculator.html" role="menuitem">Age-Based Sleep Guide</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/blog/index.html" class="nav-link active">Blog</a></li>
-                        <li><a href="/faq.html" class="nav-link">FAQ</a></li>
-                        <li><a href="/about.html" class="nav-link">About</a></li>
+                <div class="article-card">
+                    <h3><a href="best-time-to-go-to-bed.html">What Is the Best Time to Go to Bed?</a></h3>
+                    <div class="blog-meta">📅 January 18, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Find the optimal bedtime for better sleep quality, energy, and overall health.</p>
+                    <a href="best-time-to-go-to-bed.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="what-time-should-i-wake-up.html">What Time Should I Wake Up?</a></h3>
+                    <div class="blog-meta">📅 January 12, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Find the ideal wake-up time based on your sleep cycles, natural rhythm, and daily schedule.</p>
+                    <a href="what-time-should-i-wake-up.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="how-to-fix-sleep-schedule.html">How to Fix Your Sleep Schedule</a></h3>
+                    <div class="blog-meta">📅 January 10, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Practical strategies to reset your sleep schedule, fix circadian rhythm disruptions, and establish a consistent sleep routine.</p>
+                    <a href="how-to-fix-sleep-schedule.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="does-napping-affect-night-sleep.html">Does Napping Affect Your Nighttime Sleep?</a></h3>
+                    <div class="blog-meta">📅 January 8, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Learn how naps impact your nighttime sleep, the best nap durations for energy, and how to avoid sleep disruption.</p>
+                    <a href="does-napping-affect-night-sleep.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="how-much-sleep-does-each-age-group-need.html">How Much Sleep Does Each Age Group Need?</a></h3>
+                    <div class="blog-meta">📅 January 5, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Comprehensive sleep recommendations for newborns, children, teenagers, adults, and older adults.</p>
+                    <a href="how-much-sleep-does-each-age-group-need.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="sleep-debt-explained.html">Sleep Debt Explained: What It Means and Why It Matters</a></h3>
+                    <div class="blog-meta">📅 January 3, 2026 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Understand sleep debt, its effects on health, and how to recover from chronic sleep deprivation.</p>
+                    <a href="sleep-debt-explained.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="tips-for-better-sleep.html">10 Practical Tips for Better Sleep</a></h3>
+                    <div class="blog-meta">📅 December 30, 2025 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">Evidence-based sleep hygiene tips to improve sleep quality, fall asleep faster, and wake up refreshed.</p>
+                    <a href="tips-for-better-sleep.html" class="read-more">Read More →</a>
+                </div>
+
+                <div class="article-card">
+                    <h3><a href="sleep-calculator-guide.html">How to Use a Sleep Calculator</a></h3>
+                    <div class="blog-meta">📅 December 28, 2025 • SleepWise Editorial Team</div>
+                    <p class="blog-excerpt">A step-by-step guide on using sleep calculators to find your optimal bedtime, wake-up time, and sleep cycle timing.</p>
+                    <a href="sleep-calculator-guide.html" class="read-more">Read More →</a>
+                </div>
+
+            </div>
+
+            <div class="blog-sidebar">
+                <div class="sidebar-card">
+                    <h3>Sleep Tools</h3>
+                    <ul class="sidebar-links">
+                        <li><a href="../sleep-calculator.html">Sleep Calculator</a></li>
+                        <li><a href="../bedtime-calculator.html">Bedtime Calculator</a></li>
+                        <li><a href="../wake-up-calculator.html">Wake-Up Calculator</a></li>
+                        <li><a href="../sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
+                        <li><a href="../sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
+                        <li><a href="../nap-calculator.html">Nap Calculator</a></li>
                     </ul>
-                    
-                    <div class="nav-actions">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                            <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <circle cx="12" cy="12" r="5"/>
-                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                            </svg>
-                            <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <main id="main-content">
-        <div class="blog-header">
-            <div class="container">
-                <nav class="breadcrumbs" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="/">Home</a></li>
-                        <li aria-current="page">Blog</li>
-                    </ol>
-                </nav>
-                <h1>SleepWise Blog</h1>
-                <p>Evidence-based sleep education, tips, and tools to help you rest better.</p>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="blog-layout">
-                <div class="blog-main">
-                    <!-- Featured Article -->
-                    <article class="featured-article" id="featured-article">
-                        <div class="featured-badge">Featured</div>
-                        <h2><a href="/blog/how-sleep-cycles-work.html">How Sleep Cycles Work: A Complete Guide</a></h2>
-                        <div class="blog-meta">
-                            <span>📅 January 15, 2026</span>
-                            <span>✍️ SleepWise Editorial Team</span>
-                            <span>📂 Sleep Cycles</span>
-                        </div>
-                        <p class="blog-excerpt">Learn how sleep cycles work, why they matter, and how to use them to wake up feeling refreshed. A comprehensive guide to understanding your sleep architecture.</p>
-                        <a href="/blog/how-sleep-cycles-work.html" class="btn btn-primary">Read More</a>
-                    </article>
-
-                    <!-- Article Grid -->
-                    <div class="article-grid" id="article-grid">
-                        <!-- Will be populated by JavaScript -->
-                    </div>
-                </div>
-
-                <div class="blog-sidebar">
-                    <!-- Search -->
-                    <div class="blog-search">
-                        <label for="blog-search-input">Search Articles</label>
-                        <div class="search-input">
-                            <input type="search" id="blog-search-input" placeholder="Search articles..." aria-label="Search blog articles">
-                            <button id="blog-search-btn" class="btn btn-primary btn-sm">Search</button>
-                        </div>
-                        <div id="blog-search-results"></div>
-                    </div>
-
-                    <!-- Categories -->
-                    <div class="sidebar-widget">
-                        <h3>Categories</h3>
-                        <div class="category-list" id="category-list">
-                            <button class="category-tag active" data-category="all">All</button>
-                            <button class="category-tag" data-category="sleep-basics">Sleep Basics</button>
-                            <button class="category-tag" data-category="sleep-cycles">Sleep Cycles</button>
-                            <button class="category-tag" data-category="sleep-schedule">Sleep Schedule</button>
-                            <button class="category-tag" data-category="healthy-sleep">Healthy Sleep</button>
-                            <button class="category-tag" data-category="sleep-calculators">Sleep Calculators</button>
-                            <button class="category-tag" data-category="family-age">Family & Age</button>
-                            <button class="category-tag" data-category="naps">Naps</button>
-                        </div>
-                    </div>
-
-                    <!-- Related Calculators -->
-                    <div class="sidebar-widget">
-                        <h3>Sleep Tools</h3>
-                        <ul>
-                            <li><a href="/sleep-calculator.html">Sleep Calculator</a></li>
-                            <li><a href="/bedtime-calculator.html">Bedtime Calculator</a></li>
-                            <li><a href="/wake-up-calculator.html">Wake-Up Calculator</a></li>
-                            <li><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="ad-slot ad-slot-sidebar" aria-label="Advertisement">
-                        <!-- AdSense code will be inserted here after approval -->
-                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer class="site-footer" role="contentinfo">
-        <!-- Same as other pages -->
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo logo-footer">
-                        <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" fill="#4A6CF7" opacity="0.2"/>
-                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" fill="#4A6CF7" opacity="0.4"/>
-                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
-                    </a>
-                    <p>Plan better sleep. Wake up refreshed.</p>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Sleep Tools</h4>
-                        <ul>
-                            <li><a href="/sleep-calculator.html">Sleep Calculator</a></li>
-                            <li><a href="/bedtime-calculator.html">Bedtime Calculator</a></li>
-                            <li><a href="/wake-up-calculator.html">Wake-Up Calculator</a></li>
-                            <li><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
-                            <li><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
-                            <li><a href="/nap-calculator.html">Nap Calculator</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="/blog/index.html">Blog</a></li>
-                            <li><a href="/faq.html">FAQ</a></li>
-                            <li><a href="/age-sleep-calculator.html">Sleep by Age</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="/about.html">About</a></li>
-                            <li><a href="/contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-                            <li><a href="/terms.html">Terms of Use</a></li>
-                            <li><a href="/disclaimer.html">Disclaimer</a></li>
-                        </ul>
-                    </div>
-                </div>
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="../index.html" style="font-size:1.125rem;text-decoration:none;color:#1a2332;font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;">
+                    <span style="font-size:1.2rem;color:#4A6CF7;">🌙</span>
+                    <span>Sleep<span style="color:#4A6CF7;">Wise</span></span>
+                </a>
+                <p>Plan better sleep. Wake up refreshed.</p>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 SleepWise. All rights reserved.</p>
-                <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="/disclaimer.html">View Disclaimer</a>.</p>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Sleep Tools</h4>
+                    <ul>
+                        <li><a href="../sleep-calculator.html">Sleep Calculator</a></li>
+                        <li><a href="../bedtime-calculator.html">Bedtime Calculator</a></li>
+                        <li><a href="../wake-up-calculator.html">Wake-Up Calculator</a></li>
+                        <li><a href="../sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
+                        <li><a href="../sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
+                        <li><a href="../nap-calculator.html">Nap Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../age-sleep-calculator.html">Sleep by Age</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="../terms.html">Terms of Use</a></li>
+                        <li><a href="../disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </footer>
 
-    <script src="/js/config.js" defer></script>
-    <script src="/js/navigation.js" defer></script>
-    <script src="/js/blog.js" defer></script>
-    <script src="/js/cookie-consent.js" defer></script>
-    <script src="/js/main.js" defer></script>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SleepWise. All rights reserved.</p>
+            <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="../disclaimer.html">View Disclaimer</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Mobile Navigation
+(function() {
+    var navToggle = document.getElementById('nav-toggle');
+    var mobileNav = document.getElementById('mobile-nav');
+    
+    if (navToggle && mobileNav) {
+        navToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('open');
+            this.textContent = mobileNav.classList.contains('open') ? '✕' : '☰';
+        });
+    }
+})();
+</script>
 </body>
 </html>
