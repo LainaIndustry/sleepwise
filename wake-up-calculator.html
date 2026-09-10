@@ -7,279 +7,482 @@
     <meta name="description" content="Find the best time to wake up with our free wake-up calculator. Based on your bedtime, sleep cycles, and age.">
     <link rel="canonical" href="https://YOUR-DOMAIN.com/wake-up-calculator.html">
     <meta name="robots" content="index, follow">
-    
     <meta property="og:title" content="Wake-Up Calculator - Find Your Ideal Wake-Up Time | SleepWise">
     <meta property="og:description" content="Find the best time to wake up with our free wake-up calculator.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://YOUR-DOMAIN.com/wake-up-calculator.html">
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Wake-Up Calculator - Find Your Ideal Wake-Up Time | SleepWise">
     <meta name="twitter:description" content="Find the best time to wake up with our free wake-up calculator.">
-    
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <meta name="theme-color" content="#4A6CF7">
     
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
+    <style>
+        /* SAME STYLES - Copy from bedtime-calculator.html */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #f8fafc; color: #1a2332; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { color: #4A6CF7; text-decoration: none; }
+        a:hover { color: #3a56d4; }
+        .site-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #1a2332; font-weight: 700; font-size: 1.25rem; }
+        .logo-highlight { color: #4A6CF7; }
+        .tagline { font-size: 0.75rem; color: #718096; font-weight: 400; }
+        .nav-list { display: flex; list-style: none; gap: 4px; align-items: center; flex-wrap: wrap; }
+        .nav-list a { text-decoration: none; color: #4a5568; padding: 8px 14px; border-radius: 8px; font-weight: 500; font-size: 0.875rem; transition: all 0.2s; }
+        .nav-list a:hover { background: #f1f4f9; color: #1a2332; }
+        .nav-list a.active { color: #4A6CF7; background: #e8edfd; }
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 4px 8px; }
+        .mobile-nav { display: none; flex-direction: column; padding: 16px 0; border-top: 1px solid #e2e8f0; margin-top: 12px; }
+        .mobile-nav a { padding: 10px 0; text-decoration: none; color: #4a5568; border-bottom: 1px solid #f1f4f9; }
+        .mobile-nav a:hover { color: #4A6CF7; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 24px; font-family: inherit; font-size: 1rem; font-weight: 600; border: 2px solid transparent; border-radius: 8px; cursor: pointer; transition: all 0.2s; min-height: 44px; text-decoration: none; }
+        .btn-primary { background: #4A6CF7; color: #fff; border-color: #4A6CF7; }
+        .btn-primary:hover { background: #3a56d4; border-color: #3a56d4; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(74,108,247,0.3); color: #fff; }
+        .btn-secondary { background: #fff; color: #1a2332; border-color: #e2e8f0; }
+        .btn-secondary:hover { background: #f1f4f9; }
+        .btn-text { background: transparent; color: #4A6CF7; border-color: transparent; padding: 8px 16px; }
+        .btn-text:hover { background: #e8edfd; }
+        .btn-lg { padding: 14px 32px; font-size: 1.125rem; min-height: 52px; }
+        .btn-sm { padding: 6px 16px; font-size: 0.875rem; min-height: 36px; }
+        .page-header { padding: 40px 0 24px; background: #f1f4f9; border-bottom: 1px solid #e2e8f0; }
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 8px; }
+        .page-header p { font-size: 1.125rem; color: #4a5568; max-width: 700px; }
+        .breadcrumbs { margin-bottom: 16px; font-size: 0.875rem; color: #718096; }
+        .breadcrumbs a { color: #4a5568; text-decoration: none; }
+        .breadcrumbs a:hover { color: #4A6CF7; }
+        .breadcrumbs span { color: #1a2332; }
+        .calculator-page { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 40px 0; }
+        .calculator-card { max-width: 100%; margin: 0 auto; background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .calc-options { margin-bottom: 24px; }
+        .calc-option-label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 4px; font-size: 0.875rem; }
+        .form-control { width: 100%; padding: 10px 12px; font-family: inherit; font-size: 1rem; color: #1a2332; background: #fff; border: 2px solid #e2e8f0; border-radius: 8px; transition: border-color 0.2s; min-height: 44px; }
+        .form-control:focus { outline: none; border-color: #4A6CF7; box-shadow: 0 0 0 3px rgba(74,108,247,0.15); }
+        .time-input-group { display: flex; gap: 8px; align-items: center; }
+        .time-input-group .form-control { flex: 1; }
+        .time-btn { padding: 6px 12px; font-size: 0.75rem; font-weight: 500; border: 1px solid #e2e8f0; border-radius: 6px; background: #fff; color: #4a5568; cursor: pointer; min-height: 36px; transition: all 0.2s; }
+        .time-btn:hover { background: #f1f4f9; }
+        .calc-actions { display: flex; gap: 16px; margin-top: 24px; flex-wrap: wrap; }
+        .calc-actions .btn { flex: 1; min-width: 120px; }
+        .calc-results { margin-top: 32px; padding-top: 32px; border-top: 2px solid #e2e8f0; }
+        .calc-results-header h3 { margin-bottom: 4px; }
+        .calc-results-subtitle { color: #718096; font-size: 0.875rem; }
+        .calc-results-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 20px 0; }
+        .result-card { background: #f1f4f9; border-radius: 8px; padding: 20px; text-align: center; border: 1px solid #edf2f7; }
+        .result-card .result-time { font-size: 1.5rem; font-weight: 700; color: #1a2332; }
+        .result-card .result-label { font-size: 0.75rem; color: #718096; text-transform: uppercase; letter-spacing: 0.05em; }
+        .result-card .result-detail { font-size: 0.75rem; color: #4a5568; margin-top: 4px; }
+        .calc-results-disclaimer { padding: 16px; background: #f1f4f9; border-radius: 8px; border-left: 3px solid #ed8936; font-size: 0.875rem; color: #4a5568; }
+        .calc-error { text-align: center; padding: 20px; color: #fc8181; }
+        .calculator-sidebar { display: flex; flex-direction: column; gap: 24px; }
+        .sidebar-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; }
+        .sidebar-card h3 { font-size: 1.125rem; margin-bottom: 12px; }
+        .sidebar-links { list-style: none; padding: 0; }
+        .sidebar-links li { margin-bottom: 8px; }
+        .sidebar-links li a { color: #4a5568; text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid #f1f4f9; transition: all 0.2s; }
+        .sidebar-links li a:hover { color: #4A6CF7; padding-left: 8px; }
+        .sidebar-card p { font-size: 0.9375rem; color: #4a5568; }
+        .content-section { margin-top: 40px; }
+        .content-section h2 { font-size: 1.5rem; margin-bottom: 12px; margin-top: 32px; }
+        .content-section h3 { font-size: 1.25rem; margin-bottom: 8px; margin-top: 24px; }
+        .content-section p { margin-bottom: 16px; color: #4a5568; }
+        .content-section ul { padding-left: 24px; margin-bottom: 16px; color: #4a5568; }
+        .content-section ul li { margin-bottom: 8px; }
+        .site-footer { background: #fff; border-top: 1px solid #e2e8f0; padding: 40px 0 20px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; margin-bottom: 32px; }
+        .footer-brand p { font-size: 0.875rem; color: #718096; margin-bottom: 8px; }
+        .footer-disclaimer { font-size: 0.75rem; color: #718096; max-width: 300px; }
+        .footer-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .footer-column h4 { font-size: 0.875rem; font-weight: 600; margin-bottom: 12px; }
+        .footer-column ul { list-style: none; padding: 0; }
+        .footer-column ul li { margin-bottom: 8px; }
+        .footer-column ul li a { color: #4a5568; font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+        .footer-column ul li a:hover { color: #4A6CF7; }
+        .footer-bottom { padding-top: 20px; border-top: 1px solid #e2e8f0; text-align: center; }
+        .footer-bottom p { font-size: 0.875rem; color: #718096; margin-bottom: 8px; }
+        .footer-legal { font-size: 0.75rem; max-width: 600px; margin: 0 auto; }
+        .cookie-consent { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 2px solid #4A6CF7; padding: 16px 0; z-index: 300; box-shadow: 0 -4px 16px rgba(0,0,0,0.1); transform: translateY(100%); transition: transform 0.3s ease; }
+        .cookie-consent.visible { transform: translateY(0); }
+        .cookie-consent-content { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .cookie-consent-content p { margin: 0; font-size: 0.875rem; color: #4a5568; flex: 1; min-width: 200px; }
+        .cookie-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+        @media (max-width: 1024px) { .footer-links { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .calculator-page { grid-template-columns: 1fr; }
+            .calc-inputs { grid-template-columns: 1fr; }
+            .calc-actions { flex-direction: column; }
+            .calc-actions .btn { min-width: auto; }
+            .calc-results-list { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer-links { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .page-header h1 { font-size: 1.75rem; }
+            .calculator-card { padding: 20px; }
+            .nav-list { display: none; }
+            .nav-toggle { display: block; }
+            .mobile-nav.open { display: flex; }
+        }
+        @media (max-width: 480px) {
+            .calc-results-list { grid-template-columns: 1fr; }
+            .footer-links { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Same header and footer structure as other pages -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div id="cookie-consent" class="cookie-consent" role="alert" aria-label="Cookie consent">
-        <div class="cookie-consent-content">
-            <p>We use cookies to improve your experience. By continuing, you agree to our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
-            <div class="cookie-buttons">
-                <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
-                <button id="cookie-reject" class="btn btn-secondary btn-sm">Reject Non-Essential</button>
-                <a href="/cookie-policy.html" class="btn btn-text btn-sm">Learn More</a>
-            </div>
+<!-- COOKIE CONSENT -->
+<div id="cookie-consent" class="cookie-consent" role="alert">
+    <div class="cookie-consent-content">
+        <p>We use cookies to improve your experience. By continuing, you agree to our <a href="cookie-policy.html">Cookie Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button id="cookie-accept" class="btn btn-primary btn-sm">Accept</button>
+            <button id="cookie-reject" class="btn btn-secondary btn-sm">Reject Non-Essential</button>
+            <a href="cookie-policy.html" class="btn btn-text btn-sm">Learn More</a>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <span style="font-size:1.5rem;color:#4A6CF7;">🌙</span>
+                <span>Sleep<span class="logo-highlight">Wise</span></span>
+                <span class="tagline">Plan Better Sleep</span>
+            </a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">☰</button>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="sleep-calculator.html">Sleep Calculator</a></li>
+                    <li><a href="bedtime-calculator.html">Bedtime</a></li>
+                    <li><a href="wake-up-calculator.html" class="active">Wake-Up</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="sleep-calculator.html">Sleep Calculator</a>
+            <a href="bedtime-calculator.html">Bedtime Calculator</a>
+            <a href="wake-up-calculator.html">Wake-Up Calculator</a>
+            <a href="sleep-cycle-calculator.html">Sleep Cycle Calculator</a>
+            <a href="sleep-debt-calculator.html">Sleep Debt Calculator</a>
+            <a href="nap-calculator.html">Nap Calculator</a>
+            <a href="age-sleep-calculator.html">Age-Based Sleep Guide</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="faq.html">FAQ</a>
+            <a href="about.html">About</a>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+    <div class="page-header">
+        <div class="container">
+            <div class="breadcrumbs"><a href="index.html">Home</a> &gt; <span>Wake-Up Calculator</span></div>
+            <h1>Wake-Up Calculator</h1>
+            <p>Find the best time to wake up based on when you go to bed.</p>
         </div>
     </div>
 
-    <header class="site-header" role="banner">
-        <div class="container">
-            <div class="header-inner">
-                <div class="logo-container">
-                    <a href="/" class="logo" aria-label="SleepWise Home">
-                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" fill="#4A6CF7"/>
-                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" fill="#4A6CF7"/>
-                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M11 22l2-2M21 22l-2-2M14 9l1 3M18 9l-1 3" stroke="#4A6CF7" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
-                    </a>
-                    <span class="tagline">Plan Better Sleep</span>
+    <div class="container">
+        <div class="calculator-page">
+            <div class="calculator-main">
+                <div class="calculator-card">
+                    <div class="calc-options">
+                        <div class="calc-option-group">
+                            <label class="calc-option-label">I want to go to bed at:</label>
+                            <div class="time-input-group">
+                                <input type="time" id="wakeup-bedtime" class="form-control" step="900">
+                                <button class="time-btn" id="wakeup-now-btn">Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-inputs">
+                        <div class="form-group">
+                            <label for="wakeup-cycles">Number of Sleep Cycles</label>
+                            <select id="wakeup-cycles" class="form-control">
+                                <option value="4">4 cycles (~6 hours)</option>
+                                <option value="5" selected>5 cycles (~7.5 hours)</option>
+                                <option value="6">6 cycles (~9 hours)</option>
+                                <option value="7">7 cycles (~10.5 hours)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wakeup-fall-asleep">Time to Fall Asleep (minutes)</label>
+                            <select id="wakeup-fall-asleep" class="form-control">
+                                <option value="5">5 minutes</option>
+                                <option value="10">10 minutes</option>
+                                <option value="15" selected>15 minutes</option>
+                                <option value="20">20 minutes</option>
+                                <option value="30">30 minutes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wakeup-age">Age</label>
+                            <select id="wakeup-age" class="form-control">
+                                <option value="newborn">Newborn (0-3 months)</option>
+                                <option value="infant">Infant (4-11 months)</option>
+                                <option value="toddler">Toddler (1-2 years)</option>
+                                <option value="preschooler">Preschooler (3-5 years)</option>
+                                <option value="school">School-age (6-12 years)</option>
+                                <option value="teen">Teenager (13-17 years)</option>
+                                <option value="young-adult">Young Adult (18-25 years)</option>
+                                <option value="adult" selected>Adult (26-64 years)</option>
+                                <option value="older-adult">Older Adult (65+ years)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button id="wakeup-submit" class="btn btn-primary btn-lg" style="width:100%;">Find My Wake-Up Time</button>
+                        </div>
+                    </div>
+
+                    <div id="wakeup-results" class="calc-results" hidden>
+                        <div class="calc-results-header">
+                            <h3>Suggested Wake-Up Times</h3>
+                            <p class="calc-results-subtitle">Based on your bedtime, here are the recommended wake-up times.</p>
+                        </div>
+                        <div id="wakeup-results-list" class="calc-results-list"></div>
+                        <div class="calc-results-disclaimer">
+                            <p>⚠️ These times are estimates. Individual sleep needs and sleep-cycle lengths vary. <a href="disclaimer.html">Learn more</a>.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <span class="nav-toggle-line"></span>
-                    <span class="nav-toggle-line"></span>
-                    <span class="nav-toggle-line"></span>
-                </button>
-
-                <nav class="main-nav" id="main-nav" role="navigation" aria-label="Main navigation">
-                    <ul class="nav-list">
-                        <li><a href="/sleep-calculator.html" class="nav-link">Sleep Calculator</a></li>
-                        <li class="nav-dropdown">
-                            <button class="nav-link nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Sleep Tools <span class="dropdown-arrow">▾</span></button>
-                            <ul class="nav-dropdown-menu" role="menu">
-                                <li><a href="/bedtime-calculator.html" role="menuitem">Bedtime Calculator</a></li>
-                                <li><a href="/wake-up-calculator.html" role="menuitem">Wake-Up Calculator</a></li>
-                                <li><a href="/sleep-cycle-calculator.html" role="menuitem">Sleep Cycle Calculator</a></li>
-                                <li><a href="/sleep-debt-calculator.html" role="menuitem">Sleep Debt Calculator</a></li>
-                                <li><a href="/sleep-duration-calculator.html" role="menuitem">Sleep Duration Calculator</a></li>
-                                <li><a href="/nap-calculator.html" role="menuitem">Nap Calculator</a></li>
-                                <li><a href="/age-sleep-calculator.html" role="menuitem">Age-Based Sleep Guide</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/blog/index.html" class="nav-link">Blog</a></li>
-                        <li><a href="/faq.html" class="nav-link">FAQ</a></li>
-                        <li><a href="/about.html" class="nav-link">About</a></li>
-                    </ul>
+                <div class="content-section">
+                    <h2>Why Wake-Up Time Matters</h2>
+                    <p>Waking up at the right time can dramatically affect how rested you feel. The key is aligning your wake-up time with the end of a sleep cycle.</p>
                     
-                    <div class="nav-actions">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                            <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <circle cx="12" cy="12" r="5"/>
-                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                            </svg>
-                            <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <main id="main-content">
-        <div class="page-header">
-            <div class="container">
-                <nav class="breadcrumbs" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/sleep-calculator.html">Sleep Tools</a></li>
-                        <li aria-current="page">Wake-Up Calculator</li>
-                    </ol>
-                </nav>
-                <h1>Wake-Up Calculator</h1>
-                <p>Find the best time to wake up based on when you go to bed.</p>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="calculator-page">
-                <div class="calculator-main">
-                    <div class="calculator-card" role="form" aria-label="Wake-up calculator">
-                        <div class="calc-options">
-                            <div class="calc-option-group">
-                                <label class="calc-option-label">I want to go to bed at:</label>
-                                <div class="time-input-group">
-                                    <input type="time" id="wakeup-bedtime" class="form-control" value="23:00" step="900">
-                                    <div class="time-buttons">
-                                        <button class="time-btn" id="wakeup-now-btn">Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="calc-inputs">
-                            <div class="form-group">
-                                <label for="wakeup-cycles">Number of Sleep Cycles</label>
-                                <select id="wakeup-cycles" class="form-control">
-                                    <option value="4">4 cycles (~6 hours)</option>
-                                    <option value="5" selected>5 cycles (~7.5 hours)</option>
-                                    <option value="6">6 cycles (~9 hours)</option>
-                                    <option value="7">7 cycles (~10.5 hours)</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="wakeup-fall-asleep">Time to Fall Asleep (minutes)</label>
-                                <select id="wakeup-fall-asleep" class="form-control">
-                                    <option value="5">5 minutes</option>
-                                    <option value="10">10 minutes</option>
-                                    <option value="15" selected>15 minutes</option>
-                                    <option value="20">20 minutes</option>
-                                    <option value="30">30 minutes</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="wakeup-age">Age</label>
-                                <select id="wakeup-age" class="form-control">
-                                    <option value="newborn">Newborn (0-3 months)</option>
-                                    <option value="infant">Infant (4-11 months)</option>
-                                    <option value="toddler">Toddler (1-2 years)</option>
-                                    <option value="preschooler">Preschooler (3-5 years)</option>
-                                    <option value="school">School-age (6-12 years)</option>
-                                    <option value="teen">Teenager (13-17 years)</option>
-                                    <option value="young-adult">Young Adult (18-25 years)</option>
-                                    <option value="adult" selected>Adult (26-64 years)</option>
-                                    <option value="older-adult">Older Adult (65+ years)</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>&nbsp;</label>
-                                <button id="wakeup-submit" class="btn btn-primary btn-lg" style="width:100%;">Find My Wake-Up Time</button>
-                            </div>
-                        </div>
-
-                        <div id="wakeup-results" class="calc-results" hidden>
-                            <div class="calc-results-header">
-                                <h3>Suggested Wake-Up Times</h3>
-                                <p class="calc-results-subtitle">Based on your bedtime, here are the recommended wake-up times.</p>
-                            </div>
-                            <div id="wakeup-results-list" class="calc-results-list"></div>
-                            <div class="calc-results-disclaimer">
-                                <p>⚠️ These times are estimates. Individual sleep needs and sleep-cycle lengths vary. <a href="/disclaimer.html">Learn more</a>.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-section" style="margin-top:var(--space-2xl);">
-                        <h2>Why Wake-Up Time Matters</h2>
-                        <p>Waking up at the right time can dramatically affect how rested you feel. The key is aligning your wake-up time with the end of a sleep cycle.</p>
-                        
-                        <p><a href="/blog/what-time-should-i-wake-up.html">Read more about optimal wake-up times →</a></p>
-                    </div>
-                </div>
-
-                <div class="calculator-sidebar">
-                    <div class="sidebar-card">
-                        <h3>Related Calculators</h3>
-                        <ul class="sidebar-links">
-                            <li><a href="/sleep-calculator.html">Sleep Calculator</a></li>
-                            <li><a href="/bedtime-calculator.html">Bedtime Calculator</a></li>
-                            <li><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
-                            <li><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
-                            <li><a href="/nap-calculator.html">Nap Calculator</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="ad-slot ad-slot-sidebar" aria-label="Advertisement">
-                        <!-- AdSense code will be inserted here after approval -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="/" class="logo logo-footer">
-                        <svg class="logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4z" fill="#4A6CF7" opacity="0.2"/>
-                            <path d="M16 10c-3.314 0-6 2.686-6 6s2.686 6 6 6 6-2.686 6-6-2.686-6-6-6z" fill="#4A6CF7" opacity="0.4"/>
-                            <path d="M20 15.5l-3.5 2.5-2.5-3.5" stroke="#4A6CF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span class="logo-text">Sleep<span class="logo-highlight">Wise</span></span>
-                    </a>
-                    <p>Plan better sleep. Wake up refreshed.</p>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Sleep Tools</h4>
-                        <ul>
-                            <li><a href="/sleep-calculator.html">Sleep Calculator</a></li>
-                            <li><a href="/bedtime-calculator.html">Bedtime Calculator</a></li>
-                            <li><a href="/wake-up-calculator.html">Wake-Up Calculator</a></li>
-                            <li><a href="/sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
-                            <li><a href="/sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
-                            <li><a href="/nap-calculator.html">Nap Calculator</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="/blog/index.html">Blog</a></li>
-                            <li><a href="/faq.html">FAQ</a></li>
-                            <li><a href="/age-sleep-calculator.html">Sleep by Age</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="/about.html">About</a></li>
-                            <li><a href="/contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-column">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                            <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-                            <li><a href="/terms.html">Terms of Use</a></li>
-                            <li><a href="/disclaimer.html">Disclaimer</a></li>
-                        </ul>
-                    </div>
+                    <h3>Understanding Sleep Cycles</h3>
+                    <p>A sleep cycle lasts about 90 minutes on average. Waking up at the end of a cycle—when you're in light sleep—leaves you feeling more refreshed than waking in the middle of deep sleep.</p>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 SleepWise. All rights reserved.</p>
-                <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="/disclaimer.html">View Disclaimer</a>.</p>
+            <div class="calculator-sidebar">
+                <div class="sidebar-card">
+                    <h3>Related Calculators</h3>
+                    <ul class="sidebar-links">
+                        <li><a href="sleep-calculator.html">Sleep Calculator</a></li>
+                        <li><a href="bedtime-calculator.html">Bedtime Calculator</a></li>
+                        <li><a href="sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
+                        <li><a href="sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
+                        <li><a href="nap-calculator.html">Nap Calculator</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Sleep Cycle Tips</h3>
+                    <p>Most adults need 5-6 sleep cycles per night. Each cycle lasts approximately 90 minutes.</p>
+                    <a href="blog/how-sleep-cycles-work.html" style="color:#4A6CF7;font-weight:600;">Learn more →</a>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</main>
 
-    <script src="/js/config.js" defer></script>
-    <script src="/js/calculator.js" defer></script>
-    <script src="/js/wakeup-calculator.js" defer></script>
-    <script src="/js/navigation.js" defer></script>
-    <script src="/js/cookie-consent.js" defer></script>
-    <script src="/js/main.js" defer></script>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" style="font-size:1.125rem;text-decoration:none;color:#1a2332;font-weight:700;display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;">
+                    <span style="font-size:1.2rem;color:#4A6CF7;">🌙</span>
+                    <span>Sleep<span style="color:#4A6CF7;">Wise</span></span>
+                </a>
+                <p>Plan better sleep. Wake up refreshed.</p>
+                <p class="footer-disclaimer">Provides general educational information and calculator estimates. Not a substitute for professional medical advice.</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Sleep Tools</h4>
+                    <ul>
+                        <li><a href="sleep-calculator.html">Sleep Calculator</a></li>
+                        <li><a href="bedtime-calculator.html">Bedtime Calculator</a></li>
+                        <li><a href="wake-up-calculator.html">Wake-Up Calculator</a></li>
+                        <li><a href="sleep-cycle-calculator.html">Sleep Cycle Calculator</a></li>
+                        <li><a href="sleep-debt-calculator.html">Sleep Debt Calculator</a></li>
+                        <li><a href="nap-calculator.html">Nap Calculator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog/index.html">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="age-sleep-calculator.html">Sleep by Age</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SleepWise. All rights reserved.</p>
+            <p class="footer-legal">SleepWise provides general educational information and calculator estimates. It is not a substitute for professional medical advice. <a href="disclaimer.html">View Disclaimer</a>.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+// Cookie Consent
+(function() {
+    var cookieBanner = document.getElementById('cookie-consent');
+    var acceptBtn = document.getElementById('cookie-accept');
+    var rejectBtn = document.getElementById('cookie-reject');
+    if (cookieBanner) {
+        var pref = localStorage.getItem('cookieConsent');
+        if (pref === 'accepted' || pref === 'rejected') cookieBanner.classList.remove('visible');
+        else setTimeout(function() { cookieBanner.classList.add('visible'); }, 500);
+    }
+    if (acceptBtn) acceptBtn.addEventListener('click', function() { localStorage.setItem('cookieConsent', 'accepted'); if (cookieBanner) cookieBanner.classList.remove('visible'); });
+    if (rejectBtn) rejectBtn.addEventListener('click', function() { localStorage.setItem('cookieConsent', 'rejected'); if (cookieBanner) cookieBanner.classList.remove('visible'); });
+})();
+
+// Mobile Navigation
+(function() {
+    var navToggle = document.getElementById('nav-toggle');
+    var mobileNav = document.getElementById('mobile-nav');
+    if (navToggle && mobileNav) {
+        navToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('open');
+            this.textContent = mobileNav.classList.contains('open') ? '✕' : '☰';
+        });
+    }
+})();
+
+// Wake-Up Calculator
+(function() {
+    var CYCLE_DURATION = 90;
+    var bedtimeInput = document.getElementById('wakeup-bedtime');
+    var cyclesSelect = document.getElementById('wakeup-cycles');
+    var fallAsleepSelect = document.getElementById('wakeup-fall-asleep');
+    var ageSelect = document.getElementById('wakeup-age');
+    var submitBtn = document.getElementById('wakeup-submit');
+    var resultsContainer = document.getElementById('wakeup-results');
+    var resultsList = document.getElementById('wakeup-results-list');
+    var nowBtn = document.getElementById('wakeup-now-btn');
+
+    if (bedtimeInput) {
+        var now = new Date();
+        bedtimeInput.value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    }
+
+    if (nowBtn) {
+        nowBtn.addEventListener('click', function() {
+            var now = new Date();
+            if (bedtimeInput) bedtimeInput.value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+        });
+    }
+
+    if (submitBtn) submitBtn.addEventListener('click', calculateWakeup);
+
+    function minutesToTime(minutes) {
+        minutes = ((minutes % 1440) + 1440) % 1440;
+        var h = Math.floor(minutes / 60);
+        var m = minutes % 60;
+        var h12 = h % 12;
+        if (h12 === 0) h12 = 12;
+        return h12 + ':' + String(m).padStart(2, '0') + ' ' + (h >= 12 ? 'PM' : 'AM');
+    }
+
+    function calculateWakeup() {
+        if (!bedtimeInput || !cyclesSelect) return;
+        
+        var timeStr = bedtimeInput.value;
+        var cycles = parseInt(cyclesSelect.value, 10);
+        var fallAsleep = parseInt(fallAsleepSelect ? fallAsleepSelect.value : '15', 10);
+
+        if (!timeStr || timeStr.length < 4) {
+            if (resultsContainer) { resultsContainer.hidden = false; resultsList.innerHTML = '<div class="calc-error"><p>Please enter a valid time.</p></div>'; }
+            return;
+        }
+
+        var parts = timeStr.split(':');
+        if (parts.length !== 2) {
+            if (resultsContainer) { resultsContainer.hidden = false; resultsList.innerHTML = '<div class="calc-error"><p>Please enter a valid time.</p></div>'; }
+            return;
+        }
+
+        var hours = parseInt(parts[0], 10);
+        var minutes = parseInt(parts[1], 10);
+        if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+            if (resultsContainer) { resultsContainer.hidden = false; resultsList.innerHTML = '<div class="calc-error"><p>Please enter a valid time.</p></div>'; }
+            return;
+        }
+
+        var targetMinutes = hours * 60 + minutes;
+        var results = [];
+        var cycleOptions = [cycles - 1, cycles, cycles + 1];
+
+        for (var i = 0; i < cycleOptions.length; i++) {
+            var c = cycleOptions[i];
+            if (c < 3 || c > 8) continue;
+            var sleepMinutes = c * CYCLE_DURATION;
+            var resultMinutes = ((targetMinutes + fallAsleep + sleepMinutes) % 1440 + 1440) % 1440;
+            results.push({
+                time: minutesToTime(resultMinutes),
+                cycles: c,
+                sleepHours: (sleepMinutes / 60).toFixed(1),
+                isRecommended: c === cycles
+            });
+        }
+
+        if (results.length === 0) {
+            if (resultsContainer) { resultsContainer.hidden = false; resultsList.innerHTML = '<div class="calc-error"><p>Unable to calculate. Try different values.</p></div>'; }
+            return;
+        }
+
+        if (resultsContainer) {
+            resultsContainer.hidden = false;
+            var html = '';
+            for (var j = 0; j < results.length; j++) {
+                var r = results[j];
+                html += '<div class="result-card" style="' + (r.isRecommended ? 'border:2px solid #4A6CF7;' : '') + '">';
+                html += '<div class="result-time">' + r.time + '</div>';
+                html += '<div class="result-label">' + (j === 0 ? 'Recommended' : 'Alternative') + '</div>';
+                html += '<div class="result-detail">' + r.sleepHours + 'h sleep • ' + r.cycles + ' cycles</div>';
+                html += '</div>';
+            }
+            resultsList.innerHTML = html;
+        }
+
+        if (window.innerWidth < 768 && resultsContainer) {
+            setTimeout(function() { resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+        }
+    }
+})();
+</script>
 </body>
 </html>
